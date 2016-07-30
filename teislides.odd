@@ -60,11 +60,27 @@
             <elementRef key="tag"/> 
             <elementRef key="term"/>
              <elementRef key="title"/>  
-            <classSpec type="atts" ident="att.declaring" mode="delete"/>
-            <classSpec type="atts" ident="att.fragmentable" mode="delete"/>
+           <classSpec type="atts" ident="att.breaking" mode="delete"/>
+            <classSpec type="atts" ident="att.cReferencing" mode="delete"/>
+            <classSpec type="atts" ident="att.canonical" mode="delete"/>
+            <classSpec type="atts" ident="att.declarable" mode="delete"/>    
+            <classSpec type="atts" ident="att.declaring" mode="delete"/>         
+            <classSpec type="atts" ident="att.divLike" mode="delete"/>
             <classSpec type="atts" ident="att.edition" mode="delete"/>
             <classSpec type="atts" ident="att.editLike" mode="delete"/>        
+            <classSpec type="atts" ident="att.fragmentable" mode="delete"/>
+            <classSpec type="atts" ident="att.global.responsibility" mode="delete"/>
+            <classSpec type="atts" ident="att.placement" mode="delete"/>
+            <classSpec type="atts" ident="att.sortable" mode="delete"/>
+            <classSpec type="atts" ident="att.spanning" mode="delete"/>
+            
+            <classSpec type="atts" ident="att.written" mode="delete"/>
+            
             <classRef key="att.global.rendition"  except="rendition style"/>
+            <classRef key="att.datable"  except="period calendar"/>
+            <classRef key="att.datable.w3c"  include="when"/>
+            <classRef key="att.naming" except="nymRef"/>
+            <classRef key="att.pointing" except="targetLang evaluate"/>
       </schemaSpec>
       </body>
   </text>
