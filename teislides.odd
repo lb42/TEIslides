@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Simple TEI ODD for Slides</title>
+            <author xml:id="LBC">Lou Burnard Consulting</author>
+         </titleStmt>
+         <publicationStmt>
+            <ab>Unpublished working document</ab>
+         </publicationStmt>
+         <sourceDesc>
+            <ab>No pre-existing source: checked against a corpus of existing talks</ab>
+         </sourceDesc>
+      </fileDesc>
+     <revisionDesc>
+        <change when="2016-07-31" who="#LBC">First draft</change>
+     </revisionDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <head>TEI Slides</head>
+         <p>A simple ODD for encoding slides, reflecting 20 or so years of inconsistencies.</p>
+         <schemaSpec ident="teislides">
+            <moduleRef key="tei"/>
+            <moduleRef key="header" include="teiHeader fileDesc titleStmt 
+               publicationStmt sourceDesc revisionDesc change editionStmt edition  distributor availability licence"/>
+            <moduleRef key="textstructure" include="TEI text body div"/>
+            <elementRef key="ab"/>
+            <elementRef key="att"/>
+            <elementRef key="author"/>
+            <elementRef key="cb"/>
+            <elementRef key="cell"/>
+            <elementRef key="code"/>
+            <elementRef key="date"/>           
+            <elementRef key="egXML"/> 
+            <elementRef key="emph"/>         
+            <elementRef key="figure"/>  
+            <elementRef key="gi"/>   
+            <elementRef key="graphic"/>
+            <elementRef key="head"/>
+            <elementRef key="hi"/>
+            <elementRef key="ident"/>
+             <elementRef key="item"/>
+            <elementRef key="label"/>
+            <elementRef key="list"/>
+            <elementRef key="name"/>
+            <elementRef key="note"/>
+            <elementRef key="p"/>
+            <elementRef key="ptr"/>          
+            <elementRef key="publisher"/> 
+            <elementRef key="q"/>
+            <elementRef key="ref"/>
+            <elementRef key="row"/>
+            <elementRef key="soCalled"/>
+            <elementRef key="table"/>
+            <elementRef key="tag"/> 
+            <elementRef key="term"/>
+             <elementRef key="title"/>  
+            <classSpec type="atts" ident="att.declaring" mode="delete"/>
+            <classSpec type="atts" ident="att.fragmentable" mode="delete"/>
+            <classSpec type="atts" ident="att.edition" mode="delete"/>
+            <classSpec type="atts" ident="att.editLike" mode="delete"/>        
+            <classRef key="att.global.rendition"  except="rendition style"/>
+      </schemaSpec>
+      </body>
+  </text>
+</TEI>
