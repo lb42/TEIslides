@@ -96,7 +96,7 @@
     <xsl:apply-templates/>
   </xsl:template>
   
-  <xsl:template match=" div[@type = 'title']">
+  <xsl:template match="div[@type = 'title']">
     <xsl:call-template name="newline"/>
     <xsl:text>---</xsl:text>
     <xsl:call-template name="newline"/>
@@ -153,12 +153,24 @@
     <xsl:text>
 ```xml
 </xsl:text>
-    <xsl:copy-of select="./*" copy-namespaces="no" exclude-result-prefixes="#all"/>
-    <xsl:text>
+    <!-- copy-namespaces does not affect namespaces declared
+      on the element itself, so this does not do what we want -->
+<!--    <xsl:copy-of select="./*" copy-namespaces="no" />
+-->    
+    <xsl:apply-templates mode="kopy" select="./*"/><xsl:text>
 ```
 </xsl:text>
   </xsl:template>
-
+<!-- two templates for special copying mode which ignores namespaces -->
+<xsl:template match="*" mode="kopy">
+  <xsl:element name="{name()}" >
+    <xsl:apply-templates select="@*|node()" mode="kopy"/>
+  </xsl:element>
+</xsl:template>  
+<xsl:template match="@*|text()|comment()" mode="kopy">
+  <xsl:copy/>
+</xsl:template>
+  
   <xsl:template match="att">
     <xsl:text>`@</xsl:text>
     <xsl:apply-templates/>
