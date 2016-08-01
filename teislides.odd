@@ -26,9 +26,11 @@
          <p>A simple ODD for encoding slides, reflecting 20 or so years of inconsistencies.</p>
          <schemaSpec ident="teislides">
             <moduleRef key="tei"/>
+        <!-- limited number of header elements -->
             <moduleRef key="header" include="teiHeader fileDesc titleStmt 
                publicationStmt sourceDesc revisionDesc change editionStmt edition  distributor availability licence"/>
             <moduleRef key="textstructure" include="TEI text body div"/>
+            <!-- list of elements used (some of these appear only in the Header) -->
             <elementRef key="ab"/>
             <elementRef key="att"/>
             <elementRef key="author"/>
@@ -60,6 +62,26 @@
             <elementRef key="tag"/> 
             <elementRef key="term"/>
              <elementRef key="title"/>  
+            
+            <!-- we constrain div/@type -->
+            
+            <elementSpec ident="div" mode="change" module="textstructure">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <datatype><dataRef key="teidata.enumerated"/></datatype>
+                     <valList  type="semi">
+                        <valItem ident="slide"/>
+                        <valItem ident="summary"/>
+                        <valItem ident="halfTitle"/>
+                        <valItem ident="title"/>                   
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            
+            
+          <!-- Several attribute classes are deleted -->
+            
            <classSpec type="atts" ident="att.breaking" mode="delete"/>
             <classSpec type="atts" ident="att.cReferencing" mode="delete"/>
             <classSpec type="atts" ident="att.canonical" mode="delete"/>
@@ -73,9 +95,9 @@
             <classSpec type="atts" ident="att.placement" mode="delete"/>
             <classSpec type="atts" ident="att.sortable" mode="delete"/>
             <classSpec type="atts" ident="att.spanning" mode="delete"/>
-            
             <classSpec type="atts" ident="att.written" mode="delete"/>
             
+            <!-- some attribute classes are modified -->
             <classRef key="att.global.rendition"  except="rendition style"/>
             <classRef key="att.datable"  except="period calendar"/>
             <classRef key="att.datable.w3c"  include="when"/>
