@@ -5,7 +5,7 @@ default namespace tei = "http://www.tei-c.org/ns/1.0"
 namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2016-08-01T16:14:55Z. .
+# Schema generated from ODD source 2016-08-20T11:51:28Z. .
 # TEI Edition: Version 3.0.1a. Last updated on
 #	4th April 2016, revision 1b1f112
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.0.1a./
@@ -206,16 +206,17 @@ model.hiLike_sequence = hi
 model.hiLike_sequenceOptional = hi?
 model.hiLike_sequenceOptionalRepeatable = hi*
 model.hiLike_sequenceRepeatable = hi+
-model.emphLike = code | emph | ident | soCalled | term | title
+model.emphLike = code | emph | foreign | ident | soCalled | term | title
 model.emphLike_alternation =
-  code | emph | ident | soCalled | term | title
-model.emphLike_sequence = code, emph, ident, soCalled, term, title
+  code | emph | foreign | ident | soCalled | term | title
+model.emphLike_sequence =
+  code, emph, foreign, ident, soCalled, term, title
 model.emphLike_sequenceOptional =
-  code?, emph?, ident?, soCalled?, term?, title?
+  code?, emph?, foreign?, ident?, soCalled?, term?, title?
 model.emphLike_sequenceOptionalRepeatable =
-  code*, emph*, ident*, soCalled*, term*, title*
+  code*, emph*, foreign*, ident*, soCalled*, term*, title*
 model.emphLike_sequenceRepeatable =
-  code+, emph+, ident+, soCalled+, term+, title+
+  code+, emph+, foreign+, ident+, soCalled+, term+, title+
 model.highlighted = model.hiLike | model.emphLike
 model.dateLike = date
 model.dateLike_alternation = date
@@ -259,7 +260,7 @@ model.pPart.edit = model.pPart.editorial | model.pPart.transcriptional
 model.ptrLike = ptr | ref
 model.lPart = notAllowed
 model.global.meta = notAllowed
-model.milestoneLike = cb
+model.milestoneLike = cb | lb
 model.gLike = notAllowed
 model.oddDecl = notAllowed
 model.oddDecl_alternation = notAllowed
@@ -267,7 +268,7 @@ model.oddDecl_sequence = empty
 model.oddDecl_sequenceOptional = empty
 model.oddDecl_sequenceOptionalRepeatable = empty
 model.oddDecl_sequenceRepeatable = notAllowed
-model.phrase.xml = att | gi | tag
+model.phrase.xml = att | gi | tag | val
 model.specDescLike = notAllowed
 model.biblLike = notAllowed
 model.biblLike_alternation = notAllowed
@@ -823,6 +824,10 @@ figure =
     att.typed.attributes,
     empty
   }
+foreign =
+  
+  ## identifies a word or phrase as belonging to some language other than that of the surrounding text. [3.3.2.1. Foreign Words or Expressions]
+  element foreign { macro.phraseSeq, att.global.attributes, empty }
 gi =
   
   ## (element name) contains the name (generic identifier) of an element. [22. Documentation Elements 22.5. Element Specifications]
@@ -881,6 +886,13 @@ label =
   ## contains any label or heading used to identify part of a text, typically but not exclusively in a list or glossary. [3.7. Lists]
   element label {
     macro.phraseSeq, att.global.attributes, att.typed.attributes, empty
+  }
+lb =
+  
+  ## (line break) marks the start of a new (typographic) line in some edition or version of a text. [3.10.3. Milestone
+  ## Elements 7.2.5. Speech Contents]
+  element lb {
+    empty, att.global.attributes, att.typed.attributes, empty
   }
 \list =
   
@@ -1233,6 +1245,10 @@ title =
     }?,
     empty
   }
+val =
+  
+  ## (value) contains a single attribute value. [22. Documentation Elements 22.5.4. Attribute List Specification]
+  element val { text, att.global.attributes, empty }
 att.global.rendition.attributes = att.global.rendition.attribute.rend
 att.global.rendition.attribute.rend =
   

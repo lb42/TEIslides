@@ -30,7 +30,8 @@
             <moduleRef key="header" include="teiHeader fileDesc titleStmt 
                publicationStmt sourceDesc revisionDesc change editionStmt edition  distributor availability licence"/>
             <moduleRef key="textstructure" include="TEI text body div"/>
-            <!-- list of elements used (some of these appear only in the Header) -->
+            
+            <!-- list of other elements used (some of these appear only in the Header) -->
             <elementRef key="ab"/>
             <elementRef key="att"/>
             <elementRef key="author"/>
@@ -41,13 +42,17 @@
             <elementRef key="egXML"/> 
             <elementRef key="emph"/>         
             <elementRef key="figure"/>  
+            <elementRef key="foreign"/>  
+            
             <elementRef key="gi"/>   
             <elementRef key="graphic"/>
             <elementRef key="head"/>
             <elementRef key="hi"/>
             <elementRef key="ident"/>
-             <elementRef key="item"/>
+            <elementRef key="item"/>
             <elementRef key="label"/>
+            <elementRef key="lb"/>  
+            
             <elementRef key="list"/>
             <elementRef key="name"/>
             <elementRef key="note"/>
@@ -61,7 +66,8 @@
             <elementRef key="table"/>
             <elementRef key="tag"/> 
             <elementRef key="term"/>
-             <elementRef key="title"/>  
+            <elementRef key="title"/>  
+            <elementRef key="val"/>  
             
             <!-- we constrain div/@type -->
             
