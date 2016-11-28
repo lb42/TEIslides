@@ -3,26 +3,73 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_lite.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
+   <teiHeader>
       <fileDesc>
          <titleStmt>
             <title>Generating Slides from TEI My Way</title>
             <author>Lou Burnard Consulting</author>
          </titleStmt>
          <publicationStmt>
-            <p>Publication information</p>        
+            <p>Publication information</p>
          </publicationStmt>
          <sourceDesc>
             <p>Information about the source</p>
          </sourceDesc>
       </fileDesc>
-  </teiHeader>
-  <text>
+   </teiHeader>
+   <text>
       <body>
-         <p>There are many ways of generating snazzy slides from a TEI source. This is one of them. </p>
-         <figure>
-            <graphic url="teislides.png"/>
-         </figure>
+         <p>There are many ways of generating snazzy slides from a TEI source. This is one I have
+            been using for a long time, for a variety of reasons. </p>
+         <p>Here's a diagram summarizing how it works: <figure>
+               <graphic url="teitoslides.png" width="50%"/>
+            </figure></p>
+         <p><list>
+               <item>First we write our presentation in TEI XML, conforming to a fairly simple and
+                  intuitive schema. Each slide is a <gi>div</gi>, the heading of each slide is a
+                     <gi>head</gi>, the body of each slide is a <gi>list</gi> and/or a bunch of
+                     <gi>p</gi>s, with or without <gi>graphic</gi>s and so on. You can download <ref
+                     target="../teislides.odd">the ODD defining this schema</ref>, and <ref
+                     target="../teislides.rnc">the RELAX NG schema derived from it</ref> from this
+                  repo. You can of course do this in any XML editor you like, including oXygen.
+                  We'll assume you've saved your file with the inspiring name<ident>
+                     mySlides.xml</ident></item>
+               <item>Next run the following command typed at the command line. Yes, the command
+                     line.<eg>teitoslides --profile=tei mySlides.xml </eg>
+                  <note>It would be nice to have the ability to do this within oXygen: modifying the
+                     relevant ANT files is left as an exercise for the reader.</note></item>
+               <item><code>teitoslides</code> is one of a family of TEI command line scripts.
+                  provided when you install the TEI-Stylesheets package. It operates as follows: <list>
+                     <item>It transforms the source TEI into LaTeX code, under control of a TEI
+                        Stylesheet <term>profile</term> which sets parameters for all sorts of
+                        aspects of the transformation. I recommend using the <ident>tei</ident>
+                        profile, but you can set up your own profile if you wish. (You'll need to
+                        know how the TEI Stylesheets are organized to do this: there is some
+                        documentation...)</item>
+                     <item>It invokes the <ident>xelatex</ident> command included with the LiveTeX
+                        package, to transform the LaTeX source code directly into PDF. The resulting
+                        file has an extension of <code>.slides</code> rather than <code>.pdf</code>
+                        however.</item>
+
+                  </list></item>
+            </list></p>
+         <p>What can possibly go wrong? Well, mostly, you need to have the right software installed.
+            You need to <ref target="howtogetStylesheets.xml">install the TEI Stylesheet packages
+               from GitHub</ref>. You also need to get the required TeX packages by typing <eg>sudo
+               apt-get install texlive texlive-xetex texlive-latex-extra </eg></p>
+         <p>You may need something to read the PDF: try <eg>sudo apt-get install evince</eg></p>
+         <p>And you will also probably need to install some fonts. By default, the
+               <ident>tei</ident> profile expects to use fonts called <ident>Minion Pro</ident> and
+               <ident>Myriad Pro</ident> which are distributed by Adobe, but you can use any fonts
+            you like. Edit the file<ident> profiles/tei/slides/to.xsl</ident> to change the fonts
+            used for the <ident>tei</ident> profile, or (safer) make a copy of the
+               <ident>profiles/tei</ident> directory under some other name and edit that. </p>
+         <p>Another thing which usually goes wrong is that you decide to include a graphic in your
+            slides, but forget where the image file is. If in your TEI source code you supply
+            something like this <tag>graphic url="myGraphic.png"</tag>, obviously the
+               <ident>myGraphic.png</ident>file must be in the same folder as the TEI XML source. I
+            find it convenient to keep all my graphics in a folder called <ident>Graphics</ident>
+            one level up, but that's just me. </p>
       </body>
-  </text>
+   </text>
 </TEI>

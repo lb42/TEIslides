@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>How to install the TEI Stylesheet Package under Linux</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <list>
+            <item>Download the source code. You can get this from
+               <ref target="https://github.com/TEIC/Stylesheets">the TEI GitHub repository</ref> or 
+               <ref target="https://sourceforge.net/projects/tei/files/Stylesheets/">the SourceForge release 
+                  repository</ref></item>
+            <item>Assuming you have unpacked everything into a folder called <ident>Stylesheets</ident>,  issue
+               the following commands
+               <eg>cd Stylesheets; make install</eg>
+   </item><item>That's it. There is no third step.</item>
+         </list>
+      </body>
+  </text>
+</TEI>
