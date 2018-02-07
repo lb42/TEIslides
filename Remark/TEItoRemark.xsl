@@ -2,7 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:teix="http://www.tei-c.org/ns/Examples" xmlns:tei="http://www.tei-c.org/ns/1.0"
   exclude-result-prefixes="tei teix xsl" xpath-default-namespace="http://www.tei-c.org/ns/1.0">
-
+  
+  <!-- Stylesheet originally prepared by Emmanuel Chateau using the TEI Stylesheet Markdown conversion
+       to produce input files for "remark". Lightly hacked about for generic TEI slide production -->
+  
   <!-- xsl:import
     href="/Applications/oxygen/frameworks/tei/xml/tei/stylesheet/markdown/tei-to-markdown.xsl"/-->
 <xsl:import href="/usr/share/xml/tei/stylesheet/markdown/tei-to-markdown.xsl"/>
@@ -75,10 +78,14 @@
     <xsl:call-template name="newline"/>
     <xsl:call-template name="newline"/>
     <xsl:apply-templates/>
-    <xsl:text>![test](images/logo-ecole-nationale-des-chartes.png)</xsl:text>
+<!--    <xsl:text>![test](images/logo-ecole-nationale-des-chartes.png)</xsl:text>
+ -->   
+    <xsl:text>![test](images/logo.png)</xsl:text>
     <xsl:call-template name="newline"/>
   </xsl:template>
-
+  
+<!-- we dont use @rend, only @type: values are predefined in ODD TEIslides -->
+  
   <xsl:template match="div[@type = 'part' and not(div[@type = 'title'])]">
     <xsl:call-template name="newline"/>
     <xsl:text>---</xsl:text>
