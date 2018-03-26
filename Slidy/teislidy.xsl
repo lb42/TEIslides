@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- hardcoded CSS paths should be fixed some time-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:t="http://www.tei-c.org/ns/1.0"
     xmlns="http://www.w3.org/1999/xhtml" version="2.0">
@@ -22,10 +23,10 @@
                 <link rel="stylesheet" type="text/css" media="screen, projection"
                     href="https://www.w3.org/Talks/Tools/Slidy/show.css"/>
                 <!-- special CSS for egXMLs and cb handling -->
-                <link href="css/egXMLhandling.css" rel="stylesheet" type="text/css"/>
+                <link href="../css/egXMLhandling.css" rel="stylesheet" type="text/css"/>
                 <!-- load usual TEI css for everything else -->
            <!--     <link href="https://www.tei-c.org/release/doc/tei-xsl/tei.css" rel="stylesheet"
-        -->              <link href="css/tei.css" rel="stylesheet" type="text/css"/>
+        -->              <link href="../css/tei.css" rel="stylesheet" type="text/css"/>
             </head>
             <body class="simple" id="TOP">
                 <xsl:apply-templates select="t:TEI/t:text/t:body"/>
@@ -48,7 +49,7 @@
     <xsl:template match="t:body">
         
       <div class="slide cover" > 
-          <img src="media/logo.jpg"
+          <img src="../media/logo.jpg"
               width="40%" style="float:left"
             alt="[Your logo here]" 
             class="cover" /> 
