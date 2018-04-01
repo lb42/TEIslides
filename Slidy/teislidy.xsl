@@ -91,4 +91,10 @@
             </div>
         </div>
     </xsl:template>
+    <!-- for some reason, tag isn't handled by default html styles -->
+    <xsl:template match="t:tag">
+        <span class="gi">
+            <xsl:value-of select="concat('&lt;', ., '&gt;')"/>
+        </span>
+    </xsl:template>
 </xsl:stylesheet>
