@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- hardcoded CSS paths should be fixed some time-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:t="http://www.tei-c.org/ns/1.0"
     xmlns="http://www.w3.org/1999/xhtml" version="2.0">
@@ -49,7 +48,7 @@
     <xsl:template match="t:body">
         
       <div class="slide cover" > 
-          <img src="../media/logo.jpg"
+          <img src="media/logo.jpg"
               width="40%" style="float:left"
             alt="[Your logo here]" 
             class="cover" /> 
@@ -58,39 +57,39 @@
           </h1> 
         <p></p> 
     </div> 
-    <xsl:apply-templates/>
+    <xsl:apply-templates select="t:div[@type='slide']"/>
     </xsl:template>
     
+    <!-- Process only slide divs -->
     
-    <xsl:template match="t:body/t:div[@type='slide']">
+    <xsl:template match="t:div[@type='slide']">
         <div class="slide">
             <h2>
                 <xsl:value-of select="t:head"/>
             </h2>
-            <xsl:apply-templates/>
+            <!-- special case slide divs containing cb -->
+            
+            <xsl:choose>
+                <xsl:when test="t:cb">
+                    <div class="frame">
+                        <div class="col">
+                            <xsl:for-each select="*[following-sibling::t:cb]">
+                                <xsl:apply-templates select="."/>
+                            </xsl:for-each>
+                        </div>
+                        <div class="col">
+                            <xsl:for-each select="*[preceding-sibling::t:cb]">
+                                <xsl:apply-templates select="."/>
+                            </xsl:for-each>
+                        </div></div>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates/>
+                </xsl:otherwise>
+            </xsl:choose>
         </div>
     </xsl:template>
     
-    <!-- special case slide divs containing cb -->
-    <xsl:template match="t:body/t:div[@type='slide'][t:cb]">
-        <div class="slide">
-            <h2>
-                <xsl:value-of select="t:head"/>
-            </h2>
-            <div class="frame">
-                <div class="col left">
-                    <xsl:for-each select="*[following-sibling::t:cb]">
-                        <xsl:apply-templates select="."/>
-                    </xsl:for-each>
-                </div>
-                <div class="col right">
-                    <xsl:for-each select="*[preceding-sibling::t:cb]">
-                        <xsl:apply-templates select="."/>
-                    </xsl:for-each>
-                </div>
-            </div>
-        </div>
-    </xsl:template>
     <!-- for some reason, tag isn't handled by default html styles -->
     <xsl:template match="t:tag">
         <span class="gi">
