@@ -3,7 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:t="http://www.tei-c.org/ns/1.0"
     xmlns="http://www.w3.org/1999/xhtml" version="2.0">
     <!-- import base conversion style -->
-    <xsl:import href="https://www.tei-c.org/release/xml/tei/stylesheet/html/html.xsl"/>
+    <xsl:import href="http://www.tei-c.org/release/xml/tei/stylesheet/html/html.xsl"/>
     <xsl:output method="html" exclude-result-prefixes="#all" encoding="utf-8"/>
     <xsl:variable name="now" select="current-time()"/>
     <xsl:variable name="today" select="current-date()"/>
@@ -34,7 +34,6 @@
     </xsl:template>
     <xsl:template match="t:body/t:head"/>
     <xsl:template match="t:teiHeader"/>
-    <xsl:template match="t:body/t:div/t:head"/>
     <xsl:template match="t:div[@type='comments']"/>
     <xsl:template match="t:div[@type='slide']/t:div[not(@type)]">
         <xsl:apply-templates/>
@@ -50,23 +49,35 @@
       <div class="slide cover" > 
           <img src="media/logo.jpg"
               width="40%" style="float:left"
-            alt="[Your logo here]" 
+            alt="[Put logo here]" 
             class="cover" /> 
         <br clear="all"/>            
           <h1><xsl:value-of select="//t:titleStmt/t:title[1]"/>
           </h1> 
-        <p></p> 
+          <xsl:if test="//t:titleStmt/t:title[@type='sub']">
+              <h3 class="sub"><xsl:value-of select="//t:titleStmt/t:title[@type='sub']"/></h3>
+          </xsl:if>
+        <p><xsl:value-of select="//t:titleStmt/t:author"/></p> 
     </div> 
     <xsl:apply-templates select="t:div[@type='slide']"/>
     </xsl:template>
     
     <!-- Process only slide divs -->
     
+    <xsl:template match="t:head">
+     <h2>  
+         <xsl:for-each select="*|text()">
+             <xsl:apply-templates select="."/>
+           
+         </xsl:for-each>
+   </h2> 
+    </xsl:template>
+    
+    
     <xsl:template match="t:div[@type='slide']">
         <div class="slide">
-            <h2>
-                <xsl:value-of select="t:head"/>
-            </h2>
+        <!--    <xsl:apply-templates select="t:head"/>
+        -->   
             <!-- special case slide divs containing cb -->
             
             <xsl:choose>
@@ -96,4 +107,6 @@
             <xsl:value-of select="concat('&lt;', ., '&gt;')"/>
         </span>
     </xsl:template>
+    
+    
 </xsl:stylesheet>
