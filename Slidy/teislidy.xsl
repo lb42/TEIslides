@@ -100,6 +100,12 @@
             </xsl:choose>
         </div>
     </xsl:template>
+
+<xsl:template match="t:list[@type='incremental']">
+    <ul class='incremental'>
+        <xsl:apply-templates/>
+    </ul>
+</xsl:template>
     
     <!-- for some reason, tag isn't handled by default html styles -->
     <xsl:template match="t:tag">
