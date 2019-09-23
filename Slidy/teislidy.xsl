@@ -47,7 +47,7 @@
     <xsl:template match="t:body">
         
       <div class="slide cover" > 
-          <img src="media/logo.jpg"
+          <img src="media/logo.png"
               width="40%" style="float:left"
             alt="[Put logo here]" 
             class="cover" /> 
