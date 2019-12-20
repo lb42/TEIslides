@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt xml:lang="fr">
+         <title>ODD : Attendez, ce n’est pas tout !</title>
+      </titleStmt>
+      <editionStmt>
+        <edition>
+          <date from="2015-02">février 2015</date>
+        </edition>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Lou Burnard Consulting</publisher>
+        <availability>
+          <p>Freely available for use and derivative works under a Creative Commons Attribution
+     license.</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Various previous talks, TEI Guidelines, etc.</p>
+      </sourceDesc>
+    </fileDesc>
+    <revisionDesc>
+      <change when="2017-02-27">traduction par EC pour la formation de l’ENC</change>
+      <change when="2017-02-25">remaniement par LB pour la formation de l’ENC</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+  
+    <body>
+      
+      <div type="slide" xml:lang="fr" xml:id="index">
+        <head>ODD  : Attendez ce n’est pas tout !</head>
+        <list>
+          <item>ODD comme système de documentation</item>
+          <item>Définir des contraintes supplémentaires : utilisation de schematron</item>
+          <item>Enchaînement et combinaison d’ODDs</item>
+          <item>Documenter les intentions : le Processing Model</item>
+          <item>Qu’est-ce qu’être conforme à la TEI ?</item>
+        </list>
+      </div>
+      <div type="slide" xml:lang="fr">
+        <head>ODD comme système de documentation</head>
+        <p>ODD est un langage conçu pour faciliter la documentation systématique. Il fournit donc des balises spécialisées pour distinguer :
+        <list type="gloss">
+          <item><gi>code</gi> : un morceau de code exprimé dans n’importe quel langage formel <egXML xmlns="http://www.tei-c.org/ns/Examples"><code lang="C">count += 56;</code></egXML></item>
+          <item><gi>att</gi> : un nom d’attribut <egXML xmlns="http://www.tei-c.org/ns/Examples">The
+  <att scheme="TEI">target</att> attribute indicates a URI</egXML> </item>
+          <item><gi>gi</gi> : un nom d’élément <egXML xmlns="http://www.tei-c.org/ns/Examples">The
+  <gi>table</gi> element is for...</egXML> </item>
+        </list>
+        </p>
+      </div>
+   
+   <div type="slide">
+     <head>two column example</head>
+     <p>This is the left column</p>
+     <cb/>
+     <p><graphic url="teitoslides.png" height="60%"/></p>
+   </div>
+      
+      
+      <div type="slide" xml:lang="fr">
+        <head>Qu’est-ce signifie « être conforme à la TEI » ?</head>
+        <list>
+          <item><hi>être honnête</hi> : Les éléments XML qui sont déclarés comme appartenant au namespace TEI doivent respecter les définitions TEI de ces éléments</item>
+          <item><hi>être explicite</hi> : Pour valider un document TEI, un ODD est fortement conseillé, parce que cela mettra en évidence toutes les modifications effectuées.</item>
+        </list>
+        <p>Plus formellement, pour un document TEI conforme :<list>
+          <item>il doit être un document XML bien-formé</item>
+          <item>si la construction de son schéma ne prend en compte que les éléments appartenant à l’espace de nommage TEI, l'ensemble de documents considéré comme valide par ce schéma devrait être un sous-ensemble de l'ensemble de documents considéré valide par le schéma TEI-ALL.</item>
+          <item>Tout autre élément présent doit appartenir à un autre namespace</item>
+          </list></p>
+        <p rend="box">L’objet de ces règles est de simplifier le <q>blind interchange</q> des documents ; elles ne le garantissent pas.</p>
+      </div>
+    
+    </body>
+  </text>
+</TEI>
