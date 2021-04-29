@@ -88,7 +88,7 @@
                                 <xsl:apply-templates select="."/>
                             </xsl:for-each>
                         </div>
-                        <div class="col">
+                        <div class="col2">
                             <xsl:for-each select="*[preceding-sibling::t:cb]">
                                 <xsl:apply-templates select="."/>
                             </xsl:for-each>
