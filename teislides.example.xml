@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/home/lou/Public/TEIslides/teislides.rnc" type="application/relax-ng-compact-syntax"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"><teiHeader>
+    <fileDesc>
+        <titleStmt>
+            <title>TEI Slides using Slidy</title>
+            <author>Lou Burnard Consulting</author>
+        </titleStmt>
+        <publicationStmt><p>unpublished draft</p></publicationStmt>
+        <sourceDesc><p>born digital</p></sourceDesc>
+    </fileDesc>
+    <revisionDesc>
+        <change when="2021-08-03">Created file</change>
+    </revisionDesc>
+</teiHeader>
+    <text><body>
+        <div type="slide">
+            <head>How to make TEI Slides</head>
+            <list><item>First open the teislides.template.xml</item><item>Add items to the list</item><item>Add a new div for a new slide</item><item>Validate the result</item><item>Process it using teislides.xsl</item><item>Tweak the CSS if you like (its location is ../css/tei.css)</item></list>
+        </div>
+    </body></text>
+</TEI>
