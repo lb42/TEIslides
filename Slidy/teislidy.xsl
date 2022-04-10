@@ -23,10 +23,85 @@
                     href="https://www.w3.org/Talks/Tools/Slidy/show.css"/>
                 <!-- special CSS for egXMLs and cb handling -->
                 <link href="../css/egXMLhandling.css" rel="stylesheet" type="text/css"/>
+             <style>
+              
+              * {    box-sizing: border-box; }
+              
+              body {
+              margin: 0;
+              }
+              
+              /* Create two unequal columns that floats next to each other */
+              .col {
+              float: left;
+              padding: 10px;
+              width: 50%;
+              }
+              
+              
+              /* Clear floats after the columns */
+              .frame:after {
+              content: "";
+              display: table;
+              clear: both;
+              }
+              
+              div.egXML {
+              clear:both;
+              margin-top:1em;
+              margin-bottom:1em;
+              border-top-width:4px;
+              border-bottom-width:4px;
+              border-left-width:2px;
+              border-right-width:2px;
+              border-style:solid;
+              padding-top:10px;
+              padding-right:10px;
+              padding-bottom:10px;
+              padding-left:10px;
+              margin-left: 0;
+              color:#000000;
+              line-height:1.1em;
+              font-family:monospace;
+              font-size:24pt;
+              white-space:pre;
+              background-color:#f7f9f6;
+              border-color:#c5d8bb;
+              }
+              
+              .quote {
+              clear:both;
+              margin-top:0.5em;
+              margin-bottom:0.5em;
+              border-top-width:2px;
+              border-bottom-width:2px;
+              border-left-width:2px;
+              border-right-width:2px;
+              border-style:solid;
+              padding-top:10px;
+              padding-right:10px;
+              padding-bottom:10px;
+              padding-left:10px;
+              margin-left: 0;
+              color:#000000;
+              line-height:1.1em;
+              font-family:monospace;
+              font-size:16pt;   
+              background-color:#f7f9f6;
+              border-color:#c5d8bb;
+              }
+              
+              div.figure h2 {
+              font-size:14pt;
+              font-style:italic;
+              text-align:right;
+              }
+           
+             </style>
                 <!-- load usual TEI css for everything else -->
-           <!--     <link href="https://www.tei-c.org/release/doc/tei-xsl/tei.css" rel="stylesheet"
-        -->              <link href="../css/tei.css" rel="stylesheet" type="text/css"/>
-            </head>
+             <link href="https://www.tei-c.org/release/doc/tei-xsl/tei.css" rel="stylesheet"/>
+    <!--                 <link href="../css/tei.css" rel="stylesheet" type="text/css"/>
+    -->        </head>
             <body class="simple" id="TOP">
                 <xsl:apply-templates select="t:TEI/t:text/t:body"/>
             </body>

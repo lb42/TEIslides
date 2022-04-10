@@ -38,7 +38,9 @@
             <elementRef key="cb"/>
             <elementRef key="cell"/>
             <elementRef key="code"/>
-            <elementRef key="date"/>           
+            <elementRef key="date"/>   
+          <elementRef key="eg"/> 
+          
             <elementRef key="egXML"/> 
             <elementRef key="emph"/>         
             <elementRef key="figure"/>  
