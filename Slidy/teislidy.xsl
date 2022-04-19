@@ -21,8 +21,8 @@
                 <!-- special CSS for slidy -->
                 <link rel="stylesheet" type="text/css" media="screen, projection"
                     href="https://www.w3.org/Talks/Tools/Slidy/show.css"/>
-                <!-- special CSS for egXMLs and cb handling -->
-                <link href="../css/egXMLhandling.css" rel="stylesheet" type="text/css"/>
+                <!-- special CSS for egXMLs and cb handling now generated here -->
+               <!-- <link href="../css/egXMLhandling.css" rel="stylesheet" type="text/css"/>-->
              <style>
               
               * {    box-sizing: border-box; }
@@ -30,6 +30,14 @@
               body {
               margin: 0;
               }
+              
+              /* centre graphics by default */
+              img {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              }
+              
               
               /* Create two unequal columns that floats next to each other */
               .col {
