@@ -21,9 +21,13 @@
                 <!-- special CSS for slidy -->
                 <link rel="stylesheet" type="text/css" media="screen, projection"
                     href="https://www.w3.org/Talks/Tools/Slidy/show.css"/>
-                <!-- special CSS for egXMLs and cb handling now generated here -->
-               <!-- <link href="../css/egXMLhandling.css" rel="stylesheet" type="text/css"/>-->
-             <style>
+              
+             <link href="../css/egXMLhandling.css" rel="stylesheet" type="text/css"/>
+             <link href="../css/ODD.css" rel="stylesheet" type="text/css"/>
+             <link href="../css/tei.css" rel="stylesheet" type="text/css"/>
+             
+             <!-- special CSS for egXMLs and cb handling now generated here -->
+             <!--<style>
               
               * {    box-sizing: border-box; }
               
@@ -105,11 +109,14 @@
               text-align:right;
               }
            
-             </style>
+              span.ident {
+              font-family:monospace;
+              color:DarkSlateBlue;
+              }
+             </style>-->
                 <!-- load usual TEI css for everything else -->
-             <link href="https://www.tei-c.org/release/doc/tei-xsl/tei.css" rel="stylesheet"/>
-    <!--                 <link href="../css/tei.css" rel="stylesheet" type="text/css"/>
-    -->        </head>
+   <!--          <link href="https://www.tei-c.org/release/doc/tei-xsl/tei.css" rel="stylesheet"/>
+   -->       </head>
             <body class="simple" id="TOP">
                 <xsl:apply-templates select="t:TEI/t:text/t:body"/>
             </body>
@@ -130,7 +137,7 @@
     <xsl:template match="t:body">
         
       <div class="slide cover" > 
-          <img src="media/logo.png"
+          <img src="../media/logo.png"
               width="40%" style="float:left"
             alt="[Put logo here]" 
             class="cover" /> 
