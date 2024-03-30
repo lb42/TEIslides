@@ -147,7 +147,10 @@
           <xsl:if test="//t:titleStmt/t:title[@type='sub']">
               <h3 class="sub"><xsl:value-of select="//t:titleStmt/t:title[@type='sub']"/></h3>
           </xsl:if>
-        <p><xsl:value-of select="//t:titleStmt/t:author"/></p> 
+        <h2><xsl:value-of select="//t:titleStmt/t:author"/></h2> 
+          <xsl:if test="//t:titleStmt/t:meeting">
+              <p><xsl:value-of select="//t:titleStmt/t:meeting"/></p>
+          </xsl:if>
     </div> 
     <xsl:apply-templates select="t:div[@type='slide']"/>
     </xsl:template>
